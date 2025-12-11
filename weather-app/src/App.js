@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [weather, setWeather] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +23,16 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
+
+      <div className="weather-container">
+        {weather === null ? (
+          <p>No weather data. Try searching for a city!</p>
+        ) : (
+          <div className="weather-card">
+            <h2>{weather.name}, {weather.country}</h2>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
