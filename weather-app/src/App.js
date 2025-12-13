@@ -18,8 +18,21 @@ function App() {
     }
     
     const { latitude, longitude, name, country } = geoData.results[0];
-    console.log('Found city:', name, country, latitude, longitude);
-    
+
+    const weatherResponse = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto`
+    );
+    const weatherData = await weatherResponse.json();
+
+    setWeather({
+        name,
+        country,
+        temp: weatherData.current.temperature_2m,
+        humidity: weatherData.current.relative_humidity_2m,
+        windSpeed: weatherData.current.wind_speed_10m,
+        weatherCode: weatherData.current.weather_code
+    });
+
   } catch (error) {
     console.error("Error fetching weather:", error);
     alert("Failed to fetch weather. Please try again later.");
@@ -54,6 +67,7 @@ function App() {
         ) : (
           <div className="weather-card">
             <h2>{weather.name}, {weather.country}</h2>
+            <div className="temperature">{Math.round(weather.temp)}°C</div>
           </div>
         )}
       </div>
