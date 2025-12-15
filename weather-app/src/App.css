@@ -57,3 +57,66 @@ button {
 button:hover {
   transform: scale(1.05);
 }
+
+.weather-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.weather-container > p {
+  color: white;
+  font-size: 18px;
+}
+
+.weather-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.weather-card h2 {
+  font-size: 32px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #666666;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.temperature {
+  font-size: 72px;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 30px;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.detail-item {
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.label {
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.value {
+  color: #333333;
+  font-size: 24px;
+  font-weight: bold;
+}
