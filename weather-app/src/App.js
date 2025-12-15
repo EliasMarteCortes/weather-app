@@ -81,6 +81,17 @@ function App() {
             <h2>{weather.name}, {weather.country}</h2>
             <p className="description">{getWeatherDescription(weather.weatherCode)}</p>
             <div className="temperature">{Math.round(weather.temp)}°C</div>
+
+            <div className="weather-details">
+              <div className="detail-item">
+                <p className="label">Humidity</p>
+                <p className="value">{weather.humidity}%</p>
+              </div>
+              <div className="detail-item">
+                <p className="label">Wind Speed</p>
+                <p className="value">{weather.windSpeed} km/h</p>
+              </div>
+            </div>
           </div>
         )}
       </div>
