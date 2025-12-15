@@ -39,6 +39,18 @@ function App() {
   }
 };
 
+  const getWeatherDescription = (code) => {
+      if (code === 0) return 'Clear sky';
+      if (code <= 3) return 'Partly cloudy';
+      if (code <= 48) return 'Foggy';
+      if (code <= 67) return 'Rainy';
+      if (code <= 77) return 'Snowy';
+      if (code <= 82) return 'Rain showers';
+      if (code <= 86) return 'Snow showers';
+      return 'Thunderstorm';
+    };
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(searchTerm);
@@ -67,6 +79,7 @@ function App() {
         ) : (
           <div className="weather-card">
             <h2>{weather.name}, {weather.country}</h2>
+            <p className="description">{getWeatherDescription(weather.weatherCode)}</p>
             <div className="temperature">{Math.round(weather.temp)}°C</div>
           </div>
         )}
